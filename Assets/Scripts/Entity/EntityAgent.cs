@@ -2,7 +2,6 @@ using System.Runtime.CompilerServices;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
-using static UnityEditor.PlayerSettings;
 
 [RequireComponent(typeof(NavMeshAgent))]
 public class EntityAgent : MonoBehaviour
