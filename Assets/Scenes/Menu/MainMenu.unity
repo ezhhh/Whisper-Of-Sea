@@ -717,7 +717,7 @@ GameObject:
   - component: {fileID: 251663388}
   - component: {fileID: 251663391}
   m_Layer: 5
-  m_Name: Text (TMP) (1)
+  m_Name: SplashText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1540,7 +1540,7 @@ GameObject:
   - component: {fileID: 362473716}
   - component: {fileID: 362473718}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: GameName
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
