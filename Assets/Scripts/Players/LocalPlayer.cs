@@ -146,9 +146,17 @@ public class LocalPlayer : MonoBehaviour
             }
             else if (GameSettings.Instance.IsPressed(GameSettings.Instance.BestiariyKey))
             {
-
+                if (PointedObject.TryGetComponent<BestiariyInteract>(out var x))
+                {
+                    x.Interact(this);
+                }
             }
         }
+    }
+
+    public void UpdateScore()
+    {
+        GameManager.Instance.score++;
     }
 
     public bool IsSwimming()

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -8,6 +9,13 @@ public class GameManager : MonoBehaviour
 
     public LocalPlayer Player;
     public LayerMask WaterLayer;
+    public int score = 0;
+    public TMP_Text text;
+
+    private void Update()
+    {
+        text.text = score.ToString();
+    }
 
     private void Start()
     {
