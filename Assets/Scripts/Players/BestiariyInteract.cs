@@ -1,4 +1,4 @@
-using System.Collections;
+п»їusing System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using TMPro;
@@ -9,8 +9,11 @@ public class BestiariyInteract : AbstractInteractable
     public GameObject bestiaryPanel;
     public TextMeshProUGUI bestiaryText;
 
-    public override void Interact(LocalPlayer contextPlayer)
+    [SerializeField] private GameObject[] trash;
+
+    public override void ShowBestiariy()
     {
+
         string animalName = gameObject.tag;
         string path = Path.Combine(Application.dataPath, "BestiaryTXT", animalName + ".txt");
 
@@ -21,15 +24,30 @@ public class BestiariyInteract : AbstractInteractable
         }
         else
         {
-            Debug.Log("Файл не найден");
+            Debug.Log("error");
         }
 
         bestiaryPanel.SetActive(!bestiaryPanel.activeSelf);
     }
 
+    public override void Interact(LocalPlayer contextPlayer)
+    {
+        foreach (var trashItem in trash)
+        {
+            if (!trashItem.gameObject.activeSelf)
+            {
+                continue;
+            }
+
+            trashItem.gameObject.SetActive(false);
+            contextPlayer.UpdateScore();
+            break;
+        }
+    }
+
     public override string Title()
     {
-        return "[I] Посмотреть бестиарий.";
+        return "[I] РћС‚РєСЂС‹С‚СЊ Р±РµСЃС‚РёР°СЂРёР№. [E] РЎРЅСЏС‚СЊ РјСѓСЃРѕСЂ.";
     }
 }
 
