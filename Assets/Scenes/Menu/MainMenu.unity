@@ -5863,7 +5863,7 @@ GameObject:
   - component: {fileID: 1548357984}
   - component: {fileID: 1548357983}
   m_Layer: 5
-  m_Name: SplashText
+  m_Name: LoadingText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
