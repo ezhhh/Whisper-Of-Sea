@@ -13,6 +13,7 @@ public class EntityAgent : MonoBehaviour
     [SerializeField, Range(0, 100)] private float _chillChance;
     [SerializeField, Range(0, 5)] private float _chillTime;
     [SerializeField] private bool _wasStopped = false;
+    [SerializeField] private Animator _animator;
 
     public bool Stopped { get => _wasStopped; set => _wasStopped = value; }
 
@@ -35,8 +36,11 @@ public class EntityAgent : MonoBehaviour
             Point.Create(hit.point)
                 ?.StartFollow(_agent);
 
+            _animator.SetBool("IsMoving", true);
+
             if (Random.Range(0, 100) < _chillChance) { 
                 yield return new WaitForSeconds(_chillTime);
+                _animator.SetBool("IsMoving", false);
             }
         }
 
