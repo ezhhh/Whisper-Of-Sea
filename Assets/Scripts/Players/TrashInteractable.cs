@@ -5,18 +5,10 @@ using UnityEngine;
 
 public class TrashInteractable : AbstractInteractable
 {
-    public static int score = 0;
-    public TMP_Text tmpro;
     public override void Interact(LocalPlayer contextPlayer)
     {
-        score++;
-        Debug.Log(score);
         Destroy(gameObject);
-    }
-
-    private void Update()
-    {
-        tmpro.text = score.ToString();
+        contextPlayer.UpdateScore();
     }
 
     public override string Title()
