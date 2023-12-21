@@ -10,6 +10,7 @@ public class GameSettings : MonoBehaviour
     public bool RawInput = true;
 
     public KeyCode InteractKey = KeyCode.E;
+    public KeyCode BestiariyKey = KeyCode.I;
     public KeyCode JumpKey = KeyCode.Space;
     public KeyCode RunKey = KeyCode.LeftControl;
     public KeyCode CrouchKey = KeyCode.LeftShift;

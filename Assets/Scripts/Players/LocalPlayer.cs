@@ -144,6 +144,10 @@ public class LocalPlayer : MonoBehaviour
             {
                 PointedObject.Interact(this);
             }
+            else if (GameSettings.Instance.IsPressed(GameSettings.Instance.BestiariyKey))
+            {
+
+            }
         }
     }
 
