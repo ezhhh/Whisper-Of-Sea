@@ -4,19 +4,23 @@ using UnityEngine;
 
 public class AnimalInteractable : AbstractInteractable
 {
-
-    private void Start()
-    {
-     
-    }
+    [SerializeField] private GameObject[] trash;
 
     public override void Interact(LocalPlayer contextPlayer)
     {
-        transform.position = contextPlayer.transform.forward * 2;
+        foreach (var trashItem in trash)
+        {
+            if (!trashItem.gameObject.activeSelf)
+            {
+                continue;
+            }
+
+            trashItem.gameObject.SetActive(false);
+        }
     }
 
     public override string Title()
     {
-        return "[E] Что-то сделать.";
+        return "[E] Снять мусор. [I] Открыть бестиарий.";
     }
 }
