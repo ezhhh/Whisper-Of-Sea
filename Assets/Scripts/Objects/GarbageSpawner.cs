@@ -27,6 +27,7 @@ public class GarbageSpawner : MonoBehaviour
                 rotation.y = Random.Range(-180.0f, 180.0f);
 
                 obj.transform.eulerAngles = rotation;
+                obj.isStatic = true;
             }
         }
     }
