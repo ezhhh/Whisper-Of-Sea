@@ -148,7 +148,7 @@ public class LocalPlayer : MonoBehaviour
             {
                 if (PointedObject.TryGetComponent<BestiariyInteract>(out var x))
                 {
-                    x.Interact(this);
+                    x.ShowBestiariy();
                 }
             }
         }
