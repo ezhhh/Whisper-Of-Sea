@@ -146,7 +146,7 @@ public class LocalPlayer : MonoBehaviour
             }
             else if (GameSettings.Instance.IsPressed(GameSettings.Instance.BestiariyKey))
             {
-
+                PointedObject.Interact(this);
             }
         }
     }
