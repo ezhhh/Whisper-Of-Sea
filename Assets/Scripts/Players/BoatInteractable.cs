@@ -19,6 +19,8 @@ public class BoatInteractable : AbstractInteractable
             contextPlayer.gameObject.transform.SetParent(null);
             contextPlayer.RowingBoat = false;
             contextPlayer.CurrentMovementState = LocalPlayer.MovementState.Idle;
+
+            contextPlayer.transform.position = transform.position + Vector3.up;
             return;
         }
 

@@ -13,6 +13,8 @@ public class Boat : MonoBehaviour
     [SerializeField] private float _turnSpeed = 10f;
     [SerializeField] private float _waterPush = 0.6f;
 
+    private float _currentSpeed = 0.0f;
+
     private void Start()
     {
         _rb = GetComponent<Rigidbody>();
@@ -34,7 +36,9 @@ public class Boat : MonoBehaviour
         float moveAxis = GameSettings.Instance.ReadAxis("Vertical");
         float turnAxis = GameSettings.Instance.ReadAxis("Horizontal");
 
-        Vector3 moveVector = _speed * moveAxis * Time.deltaTime * transform.forward;
+        _currentSpeed = Mathf.Lerp(_currentSpeed, _speed * moveAxis, 2 * Time.deltaTime);
+
+        Vector3 moveVector = _currentSpeed * Time.deltaTime * transform.forward;
         Quaternion turnQuaternion = Quaternion.Euler(0f, turnAxis * _turnSpeed * Time.deltaTime, 0f);
 
         _rb.MovePosition(_rb.position + moveVector);
@@ -43,14 +47,7 @@ public class Boat : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (!IsAboveWater())
-        {
-            _rb.useGravity = true;
-            return;
-        }
-
-        _rb.useGravity = false;
-        _rb.AddForce(_waterPush * Vector3.up, ForceMode.Impulse);
+      
     }
 
     private bool IsAboveWater()

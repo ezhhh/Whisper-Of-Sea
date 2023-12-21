@@ -23,6 +23,10 @@ public class GarbageSpawner : MonoBehaviour
             if (Physics.Raycast(new Vector3(x, 200, z), Vector3.down, out var hit, 999))
             {
                 GameObject obj = Instantiate(toSpawn[0], hit.point, Quaternion.Euler(hit.normal));
+                Vector3 rotation = obj.transform.eulerAngles;
+                rotation.y = Random.Range(-180.0f, 180.0f);
+
+                obj.transform.eulerAngles = rotation;
             }
         }
     }

@@ -62,11 +62,9 @@ public class LocalPlayer : MonoBehaviour
         if (IsGrounded && GameSettings.Instance.IsDown(GameSettings.Instance.JumpKey))
             _velocity.y = Mathf.Sqrt(_jumpForce * -2f * Physics.gravity.y);
 
-        if (!IsSwimming())
-        {
-            _velocity.y += Physics.gravity.y * Time.deltaTime;
-        }
-
+        
+        _velocity.y += Physics.gravity.y * Time.deltaTime;
+        
         _controller.Move(_velocity * Time.deltaTime);
     }
 
